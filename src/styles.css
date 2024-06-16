@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'BankGothic';
+    font-style: normal;
+    font-weight: 400, 700; 
+    src: 
+        url('./assets/fonts/BankGothic/BankGothic-Regular.ttf') format('truetype'),
+        url('./assets/fonts/BankGothic/BankGothic-Bold.ttf') format ('truetype'),
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400, 700; 
+  src: 
+        url('./assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype'),
+        url('./assets/fonts/Montserrat/Montserrat-Bold.ttf') format ('truetype');
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin: 0;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav a:first-child {
+  font-family: 'BankGothic', sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+header nav a:first-child.active {
+  cursor: default;
+  pointer-events: none;
+}
+
+header nav a:last-child {
+  text-decoration: none;
+  display: auto;
+}
+
+header nav a:last-child.active {
+  display: none;
+}
+
+header span {
+display: flex;
+flex-direction: column;
+align-items: center;
+font-size: 10px;
+font-weight: 700;
+text-decoration: none;
+}
+
+nav span img {
+  width: 60px; 
+  height: 60px;
+}
+
+.submit-btn {
+  font-family: 'Montserrat', sans-serif;
+}
