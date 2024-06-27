@@ -1,9 +1,12 @@
-import { RouterProvider } from "react-router-dom";
-import router from "./router/Router";
-import "./styles.css";
+// import reactLogo from './assets/react.svg'
+// import viteLogo from '/vite.svg'
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <div>test</div>
+    </>
+  );
 }
 
 export default App;
