@@ -1,17 +1,15 @@
 import Form from "../components/Form";
+import Header from "../components/Header";
 import Modal from "../components/Modal";
-import NavBar from "../components/NavBar";
 
 function CreateEmployee() {
   return (
-    <>
-      <header>
-        <NavBar />
-      </header>
+    <div className="create-employee-wrapper">
+      <Header />
       <h1>Create Employee</h1>
       <Form />
       <Modal />
-    </>
+    </div>
   );
 }
 

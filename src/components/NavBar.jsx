@@ -4,14 +4,13 @@ import logo from "../assets/logo/logo.svg";
 function NavBar() {
   return (
     <nav>
-      <NavLink to="/">
-        <span>
+      <div className="nav-wrapper">
+        <NavLink to="/">
           <img src={logo} />
-          Health Wealth
-        </span>
-        HRnet
-      </NavLink>
-      <NavLink to="/employees">View Current Employees</NavLink>
+          HRnet
+        </NavLink>
+        <NavLink to="/employees">View Current Employees</NavLink>
+      </div>
     </nav>
   );
 }
