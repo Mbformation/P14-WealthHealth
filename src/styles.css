@@ -22,7 +22,25 @@ body {
   margin: 0;
 }
 
-header nav {
+.create-employee-wrapper {
+  padding: 0 80;
+  margin: 0 auto;
+  max-width: 1400px;
+  box-sizing: border-box; 
+}
+
+.employees-wrapper {
+  padding: 0 80;
+  margin: 0 auto;
+  max-width: 1400px;
+  box-sizing: border-box; 
+}
+
+header .nav-wrapper {
+  padding-top: 20px;
+}
+
+header nav .nav-wrapper{
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,19 +70,13 @@ header nav a:last-child.active {
   display: none;
 }
 
-header span {
-display: flex;
-flex-direction: column;
-align-items: center;
-font-size: 10px;
-font-weight: 700;
-text-decoration: none;
+nav img {
+  width: 40px; 
+  height: 40px;
+  margin-right: 10px;
 }
 
-nav span img {
-  width: 60px; 
-  height: 60px;
-}
+
 
 .submit-btn {
   font-family: 'Montserrat', sans-serif;
@@ -72,4 +84,15 @@ nav span img {
 
 .modal {
   display: none;
+}
+
+.create-employee-wrapper form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.create-employee-wrapper form fieldset{
+  display: flex;
+  flex-direction: column;
 }

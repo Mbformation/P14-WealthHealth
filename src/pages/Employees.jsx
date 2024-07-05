@@ -32,7 +32,7 @@ function Employees() {
   );
 
   return (
-    <>
+    <div className="employees-wrapper">
       <header>
         <NavBar />
       </header>
@@ -56,7 +56,7 @@ function Employees() {
         <Column sortable field="state" header="State"></Column>
         <Column sortable field="zipCode" header="Zip Code"></Column>
       </DataTable>
-    </>
+    </div>
   );
 }
 
