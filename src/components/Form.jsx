@@ -1,9 +1,11 @@
-import { states } from "../data/states.js";
-import { departments } from "../data/departments.js";
-import DatePicker from "datepicker-react-lib";
 import { useContext, useState } from "react";
 import { EmployeeContext } from "../utils/EmployeeProvider";
+import { states } from "../data/states.js";
+import { departments } from "../data/departments.js";
+import { InputText } from "primereact/inputtext";
+import { InputNumber } from "primereact/inputnumber";
 import { Dropdown } from "primereact/dropdown";
+import DatePicker from "datepicker-react-lib";
 
 function Form() {
   const { addEmployee } = useContext(EmployeeContext);
@@ -34,15 +36,17 @@ function Form() {
   return (
     <>
       <form id="create-employee" method="post" onSubmit={handleSubmit}>
-        <label>
-          First Name
-          <input type="text" onChange={(e) => setFirstName(e.target.value)} />
-        </label>
+        <label htmlFor="first-name">First Name</label>
+        <InputText
+          id="first-name"
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <label htmlFor="last-name">Last Name</label>
+        <InputText
+          id="last-name"
+          onChange={(e) => setLastName(e.target.value)}
+        />
 
-        <label>
-          Last Name
-          <input type="text" onChange={(e) => setLastName(e.target.value)} />
-        </label>
         <label>
           Date of Birth
           <DatePicker onChange={(value) => setDateOfBirth(value)} />
@@ -56,15 +60,10 @@ function Form() {
         <fieldset className="address">
           <legend>Address</legend>
 
-          <label>
-            Street
-            <input type="text" onChange={(e) => setStreet(e.target.value)} />
-          </label>
-
-          <label>
-            City
-            <input type="text" onChange={(e) => setCity(e.target.value)} />
-          </label>
+          <label htmlFor="street">Street</label>
+          <InputText id="street" onChange={(e) => setStreet(e.target.value)} />
+          <label htmlFor="city">Street</label>
+          <InputText id="city" onChange={(e) => setCity(e.target.value)} />
           <label>
             State
             <Dropdown
@@ -85,10 +84,11 @@ function Form() {
               placeholder="Select a Department"
             />
           </label>
-          <label>
-            Zip Code
-            <input type="number" onChange={(e) => setZipCode(e.target.value)} />
-          </label>
+          <label htmlFor="zip-code">Zip Code</label>
+          <InputNumber
+            id="zip-code"
+            onValueChange={(e) => setZipCode(e.value)}
+          />
         </fieldset>
 
         <button className="submit-btn" type="submit">
