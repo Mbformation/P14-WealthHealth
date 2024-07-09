@@ -82,9 +82,7 @@ nav img {
   font-family: 'Montserrat', sans-serif;
 }
 
-.modal {
-  display: none;
-}
+
 
 .create-employee-wrapper form {
   display: flex;
@@ -95,4 +93,26 @@ nav img {
 .create-employee-wrapper form fieldset{
   display: flex;
   flex-direction: column;
+}
+
+.modal {
+  display: none;    
+  z-index: 999;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.5);
+  inset: 0;
+}
+
+.modal-content {
+  padding: 30px;
+  background: white;
+  max-width: 600px;
+  margin: auto;
+  border-radius: 20px;
+  position: absolute;
+  inset: 0;
+  top: 15vh;
+  bottom: 15vh;
 }
