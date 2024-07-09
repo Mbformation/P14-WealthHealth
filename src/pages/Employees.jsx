@@ -5,6 +5,7 @@ import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
 import { EmployeeContext } from "../utils/EmployeeProvider";
 import { FilterMatchMode } from "primereact/api";
+import { mockEmployees } from "../data/mockEmployees";
 
 function Employees() {
   const { employees } = useContext(EmployeeContext);
@@ -36,9 +37,9 @@ function Employees() {
       <header>
         <NavBar />
       </header>
-      <h1>Employees</h1>
+      <h1>Current Employees</h1>
       <DataTable
-        value={employees}
+        value={mockEmployees}
         paginator
         rows={5}
         rowsPerPageOptions={[5, 10, 25, 50]}
