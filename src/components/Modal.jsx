@@ -1,6 +1,7 @@
 function Modal() {
   function handleClose() {
     document.querySelector(".modal").style.display = "none";
+    document.querySelector("body").style.overflow = "unset";
   }
   return (
     <div className="modal">
