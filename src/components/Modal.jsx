@@ -1,3 +1,4 @@
+// composant modal qui affiche un message lors de la création d'un employé
 function Modal() {
   function handleClose() {
     document.querySelector(".modal").style.display = "none";

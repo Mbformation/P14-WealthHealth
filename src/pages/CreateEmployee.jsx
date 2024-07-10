@@ -2,13 +2,13 @@ import Form from "../components/form/Form";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
 
+// Page d'accueil, avec un formulaire de création d'un employé
 function CreateEmployee() {
-  function addTestEmployees() {}
   return (
     <>
       <div className="create-employee-wrapper">
         <Header />
-        <h1>Create Employee</h1>
+        <h1>HRnet</h1>
         <Form />
       </div>
       <Modal />

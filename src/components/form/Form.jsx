@@ -1,13 +1,16 @@
 import { useContext, useState } from "react";
-import { EmployeeContext } from "../../utils/EmployeeProvider.jsx";
-import { states } from "../../data/states.js";
-import { departments } from "../../data/departments.js";
-import { InputText } from "primereact/inputtext";
-import { Dropdown } from "primereact/dropdown";
-import DatePicker from "datepicker-react-lib";
+import { EmployeeContext } from "../../utils/EmployeeProvider.jsx"; // contexte des employés
+import { states } from "../../data/states.js"; // liste des données d'Etats americains
+import { departments } from "../../data/departments.js"; // liste des departements
+import InputText from "./inputTypes/InputText..jsx";
+import InputNumber from "./inputTypes/InputNumber.jsx";
+import InputDate from "./inputTypes/InputDate.jsx";
+import InputSelect from "./inputTypes/InputSelect.jsx";
 
+// composant de formulaire
 function Form() {
-  const { addEmployee } = useContext(EmployeeContext);
+  const { addEmployee } = useContext(EmployeeContext); // on récupère la fonction addEmployee du context EmployeeContext
+  // initialisation des valeurs des champs du formulaire et de leur state
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
@@ -17,11 +20,12 @@ function Form() {
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
   const [zipCode, setZipCode] = useState("");
+  // fonction de soumission du formulaire
   function handleSubmit(e) {
     e.preventDefault();
     document.querySelector(".modal").style.display = "block";
     document.querySelector("body").style.overflow = "hidden";
-
+    // on ajoute l'employé à la liste des employés dans EmployeeContext
     addEmployee({
       firstName,
       lastName,
@@ -30,81 +34,77 @@ function Form() {
       dateOfBirth,
       street,
       city,
-      state: state.abbreviation,
+      state,
       zipCode,
     });
   }
-  function addTestEmployees() {
-    for (let i = 0; i < 1000; i++) {
-      addEmployee({
-        firstName: "firstName" + i,
-        lastName: "lastName" + i,
-        dateOfBirth: "11/11/1999" + i,
-        startDate: "11/11/1998" + i,
-        department: "department" + i,
-        street: "street" + i,
-        city: "city" + i,
-        state: "state" + i,
-        zipCode: "64000" + i,
-      });
-    }
-  }
+
+  // on affiche le formulaire avec les inputs, le bouton de soumission
   return (
-    <>
-      <form id="create-employee" method="post" onSubmit={handleSubmit}>
-        <label htmlFor="first-name">First Name</label>
-        <InputText
-          id="first-name"
-          onChange={(e) => setFirstName(e.target.value)}
-        />
-        <label htmlFor="last-name">Last Name</label>
-        <InputText
-          id="last-name"
-          onChange={(e) => setLastName(e.target.value)}
-        />
-        <label htmlFor="date-of-birth">Date of Birth</label>
-        <DatePicker
-          id="date-of-birth"
-          onChange={(value) => setDateOfBirth(value)}
-        />
-        <label htmlFor="start-date">Start Date</label>
-        <DatePicker onChange={(value) => setStartDate(value)} id="start-date" />
-        <fieldset className="address">
-          <legend>Address</legend>
-          <label htmlFor="street">Street</label>
-          <InputText id="street" onChange={(e) => setStreet(e.target.value)} />
-          <label htmlFor="city">City</label>
-          <InputText id="city" onChange={(e) => setCity(e.target.value)} />
-          <label htmlFor="state">State</label>
-          <Dropdown
-            id="state"
-            value={state}
-            options={states}
-            onChange={(e) => setState(e.value)}
-            optionLabel="name"
-            placeholder="Select a State"
+    <div className="form-wrapper">
+      <div className="form-content">
+        <h2>Create Employee</h2>
+        <form id="create-employee" method="post" onSubmit={handleSubmit}>
+          <InputText
+            label="First Name"
+            id="first-name"
+            onChange={(e) => setFirstName(e.target.value)}
           />
-          <label htmlFor="department">Department</label>
-          <Dropdown
+          <InputText
+            label="Last Name"
+            id="last-name"
+            onChange={(e) => setLastName(e.target.value)}
+          />
+          <label htmlFor=""></label>
+
+          <InputDate
+            label="Date of Birth"
+            id="date-of-birth"
+            onChange={(value) => setDateOfBirth(value)}
+          />
+          <InputDate
+            label="Start Date"
+            id="start-date"
+            onChange={(value) => setStartDate(value)}
+          />
+          <fieldset className="address">
+            <legend>Address</legend>
+            <InputText
+              label="Street"
+              id="street"
+              onChange={(e) => setStreet(e.target.value)}
+            />
+            <InputText
+              label="City"
+              id="city"
+              onChange={(e) => setCity(e.target.value)}
+            />
+            <InputSelect
+              label="State"
+              id="state"
+              onChange={(e) => setState(e.value)}
+              options={states}
+              placeholder="Select a State"
+            />
+            <InputNumber
+              label="Zip Code"
+              id="zip-code"
+              onChange={(e) => setZipCode(e.target.value)}
+            />
+          </fieldset>
+          <InputSelect
+            label="Department"
             id="department"
-            value={department}
-            options={departments}
             onChange={(e) => setDepartment(e.value)}
-            optionLabel="value"
+            options={departments}
             placeholder="Select a Department"
           />
-          <label htmlFor="zip-code">Zip Code</label>
-          <InputText
-            id="zip-code"
-            onChange={(e) => setZipCode(e.target.value)}
-          />
-        </fieldset>
-        <button className="submit-btn" type="submit">
-          Save
-        </button>
-      </form>
-      <button onClick={addTestEmployees}>Add Test Employees</button>
-    </>
+          <button className="submit-btn" type="submit">
+            Save
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 

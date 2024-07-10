@@ -1,3 +1,4 @@
+// composant header qui contient le composant de navigation
 import NavBar from "./NavBar";
 function Header() {
   return (
