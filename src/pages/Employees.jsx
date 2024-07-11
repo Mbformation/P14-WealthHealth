@@ -6,7 +6,7 @@ import { Column } from "primereact/column";
 import { InputText } from "primereact/inputtext";
 import { EmployeeContext } from "../utils/EmployeeProvider";
 import { FilterMatchMode } from "primereact/api";
-import { mockEmployees } from "../data/mockEmployees"; // données moquées pour le test de performance
+import { mockEmployees } from "../data/mockEmployees"; // données mockées pour le test de performance
 
 // page employés avec le datatable de la librairie primereact
 function Employees() {
@@ -28,12 +28,11 @@ function Employees() {
   // input de recherche globale dans le datatable
   const header = (
     <div style={{ textAlign: "left" }}>
-      <i className="pi pi-search" style={{ margin: "4px 4px 0 0" }}></i>
       <InputText
         className="datatable-filter"
         type="search"
         onInput={(e) => onGlobalFilterChange(e)}
-        placeholder="Recherche globale"
+        placeholder="Search"
       />
     </div>
   );
